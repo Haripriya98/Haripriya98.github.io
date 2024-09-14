@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhu's Scavenger Hunt</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        #challenge-text {
+            font-weight: bold;
+            color: #4b0082;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        #success-message {
+            display: none;
+            color: #4b0082;
+        }
+        .heart {
+            color: #ff69b4;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="challenge-container">
+            <h1>Prabhu's Scavenger Hunt</h1>
+            <p>Hey Prabhu! <span class="heart">❤️</span></p>
+            <p>Ready for an adventure filled with love and surprises?</p>
+            <p>Your first clue awaits, baby. Solve it to unveil the path to your first gift!</p>
+	    <br>
+	    <p>Petals are soft, a stem with thorn,<br/>A symbol of love, newly born</p>
+            <p id="challenge-text">Guess your gift:</p>
+            <input type="text" id="answer-input" placeholder="Feed me with your guess">
+            <button onclick="checkAnswer()">Reveal the place</button>
+            <p id="result"></p>
+        </div>
+
+        <div id="success-message">
+            <h2>Congratulations baby! <span class="heart">❤️</span></h2>
+            <p>You've unlocked the first gift easily.</p>
+            <p>Amidst green leaves and fragrant air,<br/>Your first gift awaits you there.</p>
+            <H6>Where you said NO to my kiss.</H6>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            var input = document.getElementById("answer-input").value.toLowerCase();
+            var challengeText = document.getElementById("challenge-text").innerText;
+            var expectedAnswer = 'rose';
+
+            if (input === expectedAnswer) {
+                document.getElementById("result").innerText = "Correct! Love is in the air...";
+                setTimeout(function() {
+                    document.getElementById("challenge-container").style.display = "none";
+                    document.getElementById("success-message").style.display = "block";
+                    }, 1500);
+           } else {
+            document.getElementById("result").innerText = "No Baby. Try again with your cute smile.";
+        }
+    }
+
+    // Remove the getParameterByName function and the $(document).ready block
+    // as they are no longer needed for setting the challenge text
+</script>
